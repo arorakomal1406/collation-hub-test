@@ -1,7 +1,8 @@
 ## Set up the Collationhub Coding Round Task
 ### Pre- reqirements 
-1. Node must be installed 
-2. Composer must be installed
+1. Xampp musty be available (for php and mysql) if not xampp php and my sql must be available.
+2. Node must be installed 
+3. Composer must be installed
 
 ### Process to run
 1. Clone from git , than cd laravel-test
