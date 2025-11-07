@@ -1,6 +1,6 @@
 ## Set up the Collationhub Coding Round Task
 ### Pre- reqirements 
-1. Xampp musty be available (for php and mysql) if not xampp php and my sql must be available.
+1. Xampp must be available (for php and mysql) if not xampp php and my sql must be available.
 2. Node must be installed 
 3. Composer must be installed
 
