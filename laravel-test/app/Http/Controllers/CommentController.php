@@ -26,18 +26,16 @@ class CommentController extends Controller
 
     function delete($commentId)
     {
-        $validated=Validator::make(['id' => $commentId], [
-            'id' => 'required|exists:comments,id',
-        ])->validate();
+        $comment = Comment::find($commentId);
 
-        if(!$validated){
-            return response()->json(['message' => 'Comment not found'], 404);
+        if (!$comment) {
+            return response()->json(['message' => 'Post not found'], 404);
         }
 
-        $comment = Comment::find($commentId);
         $comment->delete();
 
         return response()->json(['message'=>"Comment Deleted"], 204);
+
     }
 
 

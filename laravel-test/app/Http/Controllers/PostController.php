@@ -29,7 +29,7 @@ class PostController extends Controller
     function show($id)
     {
         $validated=Validator::make(['id' => $id], [
-            'id' => 'required|exists:posts,id',
+        'id' => 'required|exists:posts,id',
         ])->validate();
 
         if(!$validated){
@@ -42,18 +42,16 @@ class PostController extends Controller
 
     function destroy($id)
     {
-        $validated=Validator::make(['id' => $id], [
-            'id' => 'required|exists:posts,id',
-        ])->validate();
-
-        if(!$validated){
+        // find the post first; if not found return 404
+        $post = Post::find($id);
+        if (!$post) {
             return response()->json(['message' => 'Post not found'], 404);
         }
 
-        $post = Post::find($id);
         $post->delete();
 
-        return response()->json(['message'=> "Post Deleted"], 204);
+        // return a JSON message with 200 so clients see the message body
+        return response()->json(['message' => 'Post Deleted'], 200);
     }
 
     function search(Request $request)
